@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Airport</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+ 
+</head>
+<body>
+     <div class="container">
+
+
+      <div class="fileread"> 
+  <table id="tab"><tr><td id="reysfind"></td></tr></table>
+  <label class="animated fadeIn"  id="load" for="file">Загрузить список рейсов</label><input type="file" id="file" name="file"  />
+      
+     </div>
+<ul class="animated lightSpeedIn">
+   <li><button  onclick="vse()">Показать все рейсы</button> </li>
+  <li><button  onclick="vilet()">Вылетающие рейсы</button> </li>
+   <li> <button  onclick="prilet()">Прилетающие рейсы</button> </li>
+ <li> <button  onclick="delay()">Задержанные рейсы</button></li>
+ <li> <button class="find" onclick="reysp()">Искать по номеру</button></li>
+ <li><div> <input type="textarea" name="reys" id="reysp" placeholder="Номер рейса"></div></li>
+  
+  </ul>
+
+<table id="tabl">
+  <tr id="head">
+  <td><b>Время по расписанию</b></td>
+  <td><b>Код компании</b></td>
+  <td><b>Рейс</b></td>
+  <td><b>Направление</b></td>
+  <td><b>Терминал</b></td>
+  <td><b>Статус</b></td>
+  <td id = "stat"><b>ST</b></td>
+  </tr>
+  <tr class="trow" id="row-0">
+    <td class="time item00" id="one"></td>
+    <td class="kod item01"></td>
+    <td class="reys item02" id="reys0"></td>
+    <td class="napravlenie item03"></td>
+    <td class="terminal item04" ></td>
+    <td class="status item05" id="status"></td>
+   <td class="stat item06" id="stat0"></td>
+  </tr>
+  <tr class="trow" id="row-1">
+    <td class="time item10"></td>
+    <td class="kod item11"></td>
+    <td class="reys item12" id="reys1"></td>
+    <td class="napravlenie item13"></td>
+    <td class="terminal item14"></td>
+    <td class="status item15" id="status1"></td>
+    <td class="stat item16" id="stat1"></td>
+  </tr>
+  <tr class="trow" id="row-2">
+    <td class="time item20"></td>
+    <td class="kod item21"></td>
+    <td class="reys item22" id="reys2"></td>
+    <td class="napravlenie item23"></td>
+    <td class="terminal item24"></td>
+    <td class="status item25" id="status2"></td>
+    <td class="stat item26" id="stat2"></td>
+  </tr>
+   <tr class="trow" id="row-3">
+    <td class="time item30"></td>
+    <td class="kod item31"></td>
+    <td class="reys item32" id="reys3"></td>
+    <td class="napravlenie item33"></td>
+    <td class="terminal item34"></td>
+    <td class="status item35"></td>
+    <td class="stat item36" id="stat3"></td>
+  </tr>
+   <tr class="trow" id="row-4">
+    <td class="time item40"></td>
+    <td class="kod item41"></td>
+    <td class="reys item42" id="reys4"></td>
+    <td class="napravlenie item43"></td>
+    <td class="terminal item44"></td>
+    <td class="status item45"></td>
+    <td class="stat item46" id="stat4"></td>
+  </tr>
+   <tr class="trow" id="row-5">
+    <td class="time item50"></td>
+    <td class="kod item51"></td>
+    <td class="reys item52" id="reys5"></td>
+    <td class="napravlenie item53"></td>
+    <td class="terminal item54"></td>
+    <td class="status item55"></td>
+    <td class="stat item56" id="stat5"></td>
+  </tr>
+   <tr class="trow" id="row-6">
+    <td class="time item60"></td>
+    <td class="kod item61"></td>
+    <td class="reys item62" id="reys6"></td>
+    <td class="napravlenie item63"></td>
+    <td class="terminal item64"></td>
+    <td class="status item65"></td>
+    <td class="stat item66" id="stat6"></td>
+  </tr>
+   <tr class="trow" id="row-7">
+    <td class="time item70"></td>
+    <td class="kod item71"></td>
+    <td class="reys item72" id="reys7"></td>
+    <td class="napravlenie item73"></td>
+    <td class="terminal item74"></td>
+    <td class="status item75"></td>
+    <td class="stat item76" id="stat7"></td>
+  </tr>
+   <tr class="trow" id="row-8">
+    <td class="time item80"></td>
+    <td class="kod item81"></td>
+    <td class="reys item82" id="reys8"></td>
+    <td class="napravlenie item83"></td>
+    <td class="terminal item84"></td>
+    <td class="status item85"></td>
+    <td class="stat item86" id="stat8"></td>
+  </tr>
+   <tr class="trow" id="row-9">
+    <td class="time item90"></td>
+    <td class="kod item91"></td>
+    <td class="reys item92" id="reys9"></td>
+    <td class="napravlenie item93"></td>
+    <td class="terminal item94"></td>
+    <td class="status item95"></td>
+    <td class="stat item96" id="stat9"></td>
+  </tr>
+   <tr class="trow" id="row-10">
+    <td class="time item100"></td>
+    <td class="kod item101"></td>
+    <td class="reys item102" id="reys10"></td>
+    <td class="napravlenie item103"></td>
+    <td class="terminal item104"></td>
+    <td class="status item105"></td>
+    <td class="stat item106" id="stat10"></td>
+  </tr>
+   <tr class="trow" id="row-11">
+    <td class="time item110"></td>
+    <td class="kod item111"></td>
+    <td class="reys item112" id="reys11"></td>
+    <td class="napravlenie item113"></td>
+    <td class="terminal item114"></td>
+    <td class="status item115"></td>
+    <td class="stat item116" id="stat11"></td>
+  </tr>
+   <tr class="trow" id="row-12">
+    <td class="time item120"></td>
+    <td class="kod item121"></td>
+    <td class="reys item122" id="reys12"></td>
+    <td class="napravlenie item123"></td>
+    <td class="terminal item124"></td>
+    <td class="status item125"></td>
+    <td class="stat item126" id="stat12"></td>
+  </tr>
+  <tr class="trow" id="row-13">
+    <td class="time item130"></td>
+    <td class="kod item131"></td>
+    <td class="reys item132" id="reys13"></td>
+    <td class="napravlenie item133"></td>
+    <td class="terminal item134"></td>
+    <td class="status item135"></td>
+    <td class="stat item136" id="stat13"></td>
+  </tr>
+  <tr class="trow" id="row-14">
+    <td class="time item140"></td>
+    <td class="kod item141"></td>
+    <td class="reys item142" id="reys14"></td>
+    <td class="napravlenie item143"></td>
+    <td class="terminal item144"></td>
+    <td class="status item145"></td>
+    <td class="stat item146" id="stat14"></td>
+  </tr>
+  <tr class="trow" id="row-15">
+    <td class="time item150"></td>
+    <td class="kod item151"></td>
+    <td class="reys item152" id="reys15"></td>
+    <td class="napravlenie item153"></td>
+    <td class="terminal item154"></td>
+    <td class="status item155"></td>
+    <td class="stat item156" id="stat15"></td>
+  </tr>
+  <tr class="trow" id="row-16">
+    <td class="time item160"></td>
+    <td class="kod item161"></td>
+    <td class="reys item162" id="reys16"></td>
+    <td class="napravlenie item163"></td>
+    <td class="terminal item164"></td>
+    <td class="status item165"></td>
+    <td class="stat item166" id="stat16"></td>
+  </tr>
+  <tr class="trow" id="row-17">
+    <td class="time item170"></td>
+    <td class="kod item171"></td>
+    <td class="reys item172" id="reys17"></td>
+    <td class="napravlenie item173"></td>
+    <td class="terminal item174"></td>
+    <td class="status item175"></td>
+    <td class="stat item176" id="stat17"></td>
+  </tr>
+
+  <tr class="trow" id="row-18">
+    <td class="time item180"></td>
+    <td class="kod item181"></td>
+    <td class="reys item182" id="reys18"></td>
+    <td class="napravlenie item183"></td>
+    <td class="terminal item184"></td>
+    <td class="status item185"></td>
+    <td class="stat item186" id="stat18"></td>
+  </tr>
+    <tr class="trow" id="row-19">
+    <td class="time item190"></td>
+    <td class="kod item191"></td>
+    <td class="reys item192" id="reys19"></td>
+    <td class="napravlenie item193"></td>
+    <td class="terminal item194"></td>
+    <td class="status item195"></td>
+    <td class="stat item196" id="stat19"></td>
+  </tr>
+    <tr class="trow" id="row-20">
+    <td class="time item200"></td>
+    <td class="kod item201"></td>
+    <td class="reys item202" id="reys20"></td>
+    <td class="napravlenie item203"></td>
+    <td class="terminal item204"></td>
+    <td class="status item205"></td>
+    <td class="stat item206" id="stat20"></td>
+  </tr>
+    <tr class="trow" id="row-21">
+    <td class="time item210"></td>
+    <td class="kod item211"></td>
+    <td class="reys item212" id="reys21"></td>
+    <td class="napravlenie item213"></td>
+    <td class="terminal item214"></td>
+    <td class="status item215"></td>
+    <td class="stat item216" id="stat21"></td>
+  </tr>
+    <tr class="trow" id="row-22">
+    <td class="time item220"></td>
+    <td class="kod item221"></td>
+    <td class="reys item222" id="reys22"></td>
+    <td class="napravlenie item223"></td>
+    <td class="terminal item224"></td>
+    <td class="status item225"></td>
+    <td class="stat item226" id="stat22"></td>
+  </tr>
+    <tr class="trow" id="row-23">
+    <td class="time item230"></td>
+    <td class="kod item231"></td>
+    <td class="reys item232" id="reys23"></td>
+    <td class="napravlenie item233"></td>
+    <td class="terminal item234"></td>
+    <td class="status item235"></td>
+    <td class="stat item236" id="stat23"></td>
+  </tr>
+
+
+</table>
+
+</div>
+
+<script type="text/javascript" src="js/airport.js"></script>
+
+</body>
+</html>
